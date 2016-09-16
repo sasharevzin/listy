@@ -2,14 +2,14 @@
   Login
 </h1>
 
-<%= form_for :session do |f| %>
+<%= form_for :session, { url: login_path } do |f| %>
   <div class="group">
-    <%= f.label :email %><br/>
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
   <div class="group">
-    <%= f.label :password %><br/>
+    <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
 
