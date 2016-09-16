@@ -1,3 +1,2 @@
-class Api::UsersController < ApplicationController
-  respond_with :json
+class Api::ApiController < ApplicationController
 end
