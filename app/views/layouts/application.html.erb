@@ -15,6 +15,11 @@
         |
         <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
       </nav>
+
+      <% [:alert, :notice].each do |key| %>
+        <%= content_tag :div, flash[key], class: "flash-#{key}" if flash[key].present? %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
