@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'profile' => 'profiles#index', as: :profile
+
+  get 'registrations/new'
+
   get 'home/index'
 
   resources :users
-  resources :sessions, only: [:create, :destroy]
 
+  get '/signup' => 'registrations#new', as: :signup
+  post '/signup' => 'registrations#create'
   get '/login' => 'sessions#new', as: :login
+  post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: :logout
 
   root to: 'home#index'

@@ -11,10 +11,31 @@
   <body>
     <div class="container">
       <nav>
-        <%= link_to 'Login', login_path %>
-        |
-        <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if current_user %>
+          <%= link_to 'Profile', profile_path %>
+          |
+          <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else %>
+          <%= link_to 'Login', login_path %>
+        <% end %>
       </nav>
+
+      <% [:alert, :notice].each do |key| %>
+        <% if flash[key].present? %>
+          <div class="flash-<%= key %>">
+            <% if flash[key].kind_of?(Array) %>
+              <ol>
+                <% flash[key].each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ol>
+            <% else %>
+              <%= flash[key] %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
