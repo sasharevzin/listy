@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profile' => 'profiles#index', as: :profile
+
   get 'registrations/new'
 
   get 'home/index'

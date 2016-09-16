@@ -1,4 +1,5 @@
-1. format errors
+sep 16
+1. integrate with bootstrap
 2.
 ====
 Listing website (Real estate)
@@ -10,7 +11,9 @@ Users:
   b. agent: posting a listing for aproval
   c. client: contact to agent, save listing to the favs
 
-2. listing: address, images, description, HIGHLIGHTS, price, status
+serialize HIGHLIGHTS
+
+2. listing: address, images, description, HIGHLIGHTS:text, price, status
 3. search by listing attributes
 4. auth
 5. via github
@@ -31,4 +34,9 @@ def create
 end
 
 rails g scaffold user first_name last_name email role password_digest
+1. user logged in
+2. created a new listing
 
+has_listings
+
+Listing
